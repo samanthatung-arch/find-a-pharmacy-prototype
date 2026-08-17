@@ -1,0 +1,35 @@
+{% extends "layout.html" %}
+
+{% from "back-link/macro.njk" import backLink %}
+
+{% block beforeContent %}
+{{ backLink({
+  href: "/question-page",
+  text: "Back"
+}) }}
+{% endblock %}
+
+{% block content %}
+  <div class="nhsuk-grid-row">
+    <div class="nhsuk-grid-column-full">
+
+<h1>
+   Search results for {{ data['postcode'] }}
+
+</h1>
+<div>
+      <p>0.1 miles away</p>
+
+      <h2 class="nhsuk-heading-m"><a href="/" class="nhsuk-link--no-visited-state">
+Pharmacy Name 1</a></h2>
+
+      <p>Opening hours: <br> Mon - Sun, 9:30am - 6pm</p>
+
+      <p>Address:<br> 10 Street, P0ST C0D3 </p>
+
+      <p><a href="/">View website</a></p>  
+    
+    </div>
+
+
+{% endblock %}

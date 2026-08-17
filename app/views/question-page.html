@@ -1,0 +1,57 @@
+{% extends "layout.html" %}
+
+{% from "back-link/macro.njk" import backLink %}
+{% from "button/macro.njk" import button %}
+{% from "input/macro.njk" import input %}
+
+{% set mainClasses = "nhsuk-main-wrapper--s" %}
+
+{% block beforeContent %}
+  {{ backLink({
+    href: "/start-page",
+    text: "Back"
+  }) }}
+{% endblock %}
+
+{% block content %}
+  <div class="nhsuk-grid-row">
+    <div class="nhsuk-grid-column-two-thirds">
+      <form action="/content-page" method="post" class="form">
+
+        {% from "fieldset/macro.njk" import fieldset %}
+{% from "input/macro.njk" import input %}
+
+{% call fieldset({
+  legend: {
+    text: "What is your address?",
+    size: "l",
+    isPageHeading: true
+  }
+}) %}
+
+
+  {{ input({
+    label: {
+      text: "Enter a full UK postcode"
+    },
+  hint: {
+    html: 'For example, SW1A 1AA.'},
+    classes: "nhsuk-input--width-10",
+    id: "address-postcode",
+    name: "postcode",
+    autocomplete: "postal-code",
+    spellcheck: false
+  }) }}
+{% from "button/macro.njk" import button %}
+
+
+
+{% endcall %}
+{{ button({
+  text: "Find Pharmacy"
+}) }}
+      </form>
+    </div>
+  </div>
+{% endblock %}
+
